@@ -65,22 +65,12 @@ functions:
                 name: true
               querystrings:
                 msg: true
-  # getquery:
-  #   handler: bin/getQueryBin
-  #   events:
-  #     - http:
-  #         path: getQ
-  #         method: get
-  #         request:
-  #           parameters:
-  #             querystrings:
-  #               name: true
-  # post:
-  #   handler: bin/postBin
-  #   events:
-  #     - http:
-  #         path: post
-  #         method: post
+  post:
+    handler: bin/postHelloWorld
+    events:
+      - http:
+          path: post
+          method: post
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
