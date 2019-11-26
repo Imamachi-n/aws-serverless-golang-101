@@ -25,7 +25,13 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		Name: name,
 		Msg:  msg,
 	}
-	jsonRes, _ := json.Marshal(test)
+	jsonRes, err := json.Marshal(test)
+	if err != nil {
+		return events.APIGatewayProxyResponse{
+			Body:       err.Error(),
+			StatusCode: 400,
+		}, nil
+	}
 
 	//Generate message that want to be sent as body
 	// message := fmt.Sprintf(" { \"Message\" : \"Hello %s %s \" } ", name, msg)
